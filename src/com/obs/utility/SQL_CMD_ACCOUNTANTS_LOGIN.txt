@@ -1,0 +1,11 @@
+INSERT INTO InfoAccountant (ename, email, epass) 
+VALUES ('Thiru', 'thiru@ssn.edu.in', 'root');
+
+INSERT INTO InfoAccountant (ename, email, epass) 
+VALUES ('Varun', 'varun@ssn.edu.in', 'root');
+
+INSERT INTO InfoAccountant (ename, email, epass) 
+VALUES ('Vishal', 'vishal@ssn.edu.in', 'root');
+
+INSERT INTO InfoAccountant (ename, email, epass) 
+VALUES ('root', 'r', 'r');

@@ -1,0 +1,58 @@
+CREATE TABLE InfoAccountant (
+    ename VARCHAR(20),
+    email VARCHAR(25),
+    epass VARCHAR(20)
+);
+
+CREATE TABLE InfoCustomer (
+    cname VARCHAR(20),
+    cmail VARCHAR(25),
+    cpass VARCHAR(20),
+    cmob VARCHAR(10),
+    cadd VARCHAR(20),
+    cid INT PRIMARY KEY AUTO_INCREMENT
+);
+
+CREATE TABLE Account (
+    cACno BIGINT PRIMARY KEY AUTO_INCREMENT,
+    cbal INT,
+    cid INT,
+    accountType VARCHAR(10),
+    overdraftLimit DOUBLE,
+    overdraftFee DOUBLE,
+    FOREIGN KEY(cid) REFERENCES InfoCustomer(cid) ON DELETE CASCADE
+);
+
+ALTER TABLE Account AUTO_INCREMENT = 2023001;
+
+CREATE TABLE Transaction (
+    cACno BIGINT NOT NULL,
+    deposit INT NOT NULL,
+    withdraw INT NOT NULL,
+    transaction_time TIMESTAMP,
+    accountType VARCHAR(10),
+    FOREIGN KEY(cACno) REFERENCES Account(cACno) ON DELETE CASCADE
+);
+
+CREATE TABLE FixedDepositAccount (
+    fdAccountNo INT PRIMARY KEY AUTO_INCREMENT,
+    customerACno BIGINT,
+    amount DECIMAL(10, 2),
+    interestRate DECIMAL(5, 2),
+    startDate DATE,
+    maturityDate DATE,
+    status ENUM('ACTIVE', 'MATURED', 'CLOSED'),
+    FOREIGN KEY (customerACno) REFERENCES Account(cACno)
+);
+
+CREATE TABLE LoanAccount (
+    loanAccountId INT PRIMARY KEY AUTO_INCREMENT,
+    customerACno BIGINT,
+    loanAmount DECIMAL(10, 2),
+    interestRate DECIMAL(5, 2),
+    loanTerm INT,
+    monthlyPayment DECIMAL(10, 2),
+    remainingLoan DECIMAL(10, 2),
+    loanStatus ENUM('Active', 'Paid', 'Defaulted'),
+    FOREIGN KEY (customerACno) REFERENCES Account(cACno)
+);

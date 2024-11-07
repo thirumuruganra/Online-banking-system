@@ -1,0 +1,366 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.8 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.8" pages="5">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="bean package">
+    <mxGraphModel dx="1969" dy="984" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="LePeyT_KOqL1H-3vX0gw-8" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=30;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="20" y="10" width="760" height="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="VE_g4JQLb7y7inpaf7CF-4" value="public class AccountantBean" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="40" y="60" width="229" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="VE_g4JQLb7y7inpaf7CF-5" value="- ename: String&lt;div&gt;- email: String&lt;/div&gt;&lt;div&gt;- epass: String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="VE_g4JQLb7y7inpaf7CF-4" vertex="1">
+          <mxGeometry y="26" width="229" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="VE_g4JQLb7y7inpaf7CF-6" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="VE_g4JQLb7y7inpaf7CF-4" vertex="1">
+          <mxGeometry y="80" width="229" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="VE_g4JQLb7y7inpaf7CF-7" value="+ AccountantBean()&lt;div&gt;+ AccountantBean(String, String, String)&lt;/div&gt;&lt;div&gt;+ getEname(): String&lt;/div&gt;&lt;div&gt;+ setEname(String): void&lt;/div&gt;&lt;div&gt;+ getEmail(): String&lt;/div&gt;&lt;div&gt;+ setEmail(String): void&lt;/div&gt;&lt;div&gt;+ getEpass(): String&lt;/div&gt;&lt;div&gt;+ setEpass(String): void&lt;/div&gt;&lt;div&gt;+ toString(): String&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="VE_g4JQLb7y7inpaf7CF-4" vertex="1">
+          <mxGeometry y="88" width="229" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="xkaRBjKAPeBsIWVN7F3F-0" value="public class CustomerBean" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="299" y="60" width="181" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="xkaRBjKAPeBsIWVN7F3F-1" value="- cACno: int&lt;div&gt;- cname: String&lt;/div&gt;&lt;div&gt;- cbal: int&lt;/div&gt;&lt;div&gt;- cmail: String&lt;/div&gt;&lt;div&gt;- cpass: String&lt;/div&gt;&lt;div&gt;- cmob: String&lt;/div&gt;&lt;div&gt;- cadd: String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="xkaRBjKAPeBsIWVN7F3F-0">
+          <mxGeometry y="26" width="181" height="114" as="geometry" />
+        </mxCell>
+        <mxCell id="xkaRBjKAPeBsIWVN7F3F-2" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="xkaRBjKAPeBsIWVN7F3F-0">
+          <mxGeometry y="140" width="181" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="xkaRBjKAPeBsIWVN7F3F-3" value="+ CustomerBean()&lt;div&gt;+ CustomerBean(int, String, int, String, String, String, String)&lt;/div&gt;&lt;div&gt;+ getcACno(): int&lt;/div&gt;&lt;div&gt;+ setcACno(int): void&lt;/div&gt;&lt;div&gt;+ getCname(): String&lt;/div&gt;&lt;div&gt;+ setCname(String): void&lt;/div&gt;&lt;div&gt;+ getCbal(): int&lt;/div&gt;&lt;div&gt;+ setCbal(int): void&lt;/div&gt;&lt;div&gt;+ getCmail(): String&lt;/div&gt;&lt;div&gt;+ setCmail(String): void&lt;/div&gt;&lt;div&gt;+ getCpass(): String&lt;/div&gt;&lt;div&gt;+ setCpass(String): void&lt;/div&gt;&lt;div&gt;+ getCmob(): String&lt;/div&gt;&lt;div&gt;+ setCmob(String): void&lt;/div&gt;&lt;div&gt;+ getCadd(): String&lt;/div&gt;&lt;div&gt;+ setCadd(String): void&lt;/div&gt;&lt;div&gt;+ toString(): String&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="xkaRBjKAPeBsIWVN7F3F-0">
+          <mxGeometry y="148" width="181" height="292" as="geometry" />
+        </mxCell>
+        <mxCell id="xkaRBjKAPeBsIWVN7F3F-4" value="public class FixedDepositAccountBean" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="499" y="60" width="261" height="410" as="geometry" />
+        </mxCell>
+        <mxCell id="xkaRBjKAPeBsIWVN7F3F-5" value="- fdAccountNo: int&lt;div&gt;- customerACno: int&lt;/div&gt;&lt;div&gt;- amount: double&lt;/div&gt;&lt;div&gt;- interestRate: double&lt;/div&gt;&lt;div&gt;- startDate: Date&lt;/div&gt;&lt;div&gt;- maturityDate: Date&lt;/div&gt;&lt;div&gt;- status: String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="xkaRBjKAPeBsIWVN7F3F-4">
+          <mxGeometry y="26" width="261" height="114" as="geometry" />
+        </mxCell>
+        <mxCell id="xkaRBjKAPeBsIWVN7F3F-6" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="xkaRBjKAPeBsIWVN7F3F-4">
+          <mxGeometry y="140" width="261" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="xkaRBjKAPeBsIWVN7F3F-7" value="+&amp;nbsp;&lt;span style=&quot;text-align: center;&quot;&gt;FixedDepositAccountBean&lt;/span&gt;()&lt;div&gt;+&amp;nbsp;&lt;span style=&quot;text-align: center;&quot;&gt;FixedDepositAccountBean&lt;/span&gt;(int, int, double, double, Date, Date, String)&lt;/div&gt;&lt;div&gt;+ getFdAccountNo(): int&lt;/div&gt;&lt;div&gt;+ setFdAccountNo(int): void&lt;/div&gt;&lt;div&gt;+ getCustomerACno(): int&lt;/div&gt;&lt;div&gt;+ setCustomerACno(int): void&lt;/div&gt;&lt;div&gt;+ getAmount(): double&lt;/div&gt;&lt;div&gt;+ setAmount(double): void&lt;/div&gt;&lt;div&gt;+ getInterestRate(): double&lt;/div&gt;&lt;div&gt;+ setInterestRate(double): void&lt;/div&gt;&lt;div&gt;+ getStartDate(): Date&lt;/div&gt;&lt;div&gt;+ setStartDate(Date): void&lt;/div&gt;&lt;div&gt;+ getMaturityDate(): Date&lt;/div&gt;&lt;div&gt;+ setMaturityDate(Date): void&lt;/div&gt;&lt;div&gt;+ getStatus(): String&lt;/div&gt;&lt;div&gt;+ setStatus(String): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="xkaRBjKAPeBsIWVN7F3F-4">
+          <mxGeometry y="148" width="261" height="262" as="geometry" />
+        </mxCell>
+        <mxCell id="LePeyT_KOqL1H-3vX0gw-0" value="public class LoanAccountBean" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="504.5" y="510" width="250" height="450" as="geometry" />
+        </mxCell>
+        <mxCell id="LePeyT_KOqL1H-3vX0gw-1" value="- loanAccountNo: int&lt;div&gt;- customerACno: int&lt;/div&gt;&lt;div&gt;- loanAmount: double&lt;/div&gt;&lt;div&gt;- interestRate: double&lt;/div&gt;&lt;div&gt;- loanTerm: int&lt;/div&gt;&lt;div&gt;- monthlyPayment: double&lt;/div&gt;&lt;div&gt;- remainingLoan: double&lt;/div&gt;&lt;div&gt;- loanStatus: String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="LePeyT_KOqL1H-3vX0gw-0">
+          <mxGeometry y="26" width="250" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="LePeyT_KOqL1H-3vX0gw-2" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="LePeyT_KOqL1H-3vX0gw-0">
+          <mxGeometry y="150" width="250" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="LePeyT_KOqL1H-3vX0gw-3" value="+&amp;nbsp;&lt;span style=&quot;text-align: center;&quot;&gt;LoanAccountBean&lt;/span&gt;()&lt;div&gt;+&amp;nbsp;&lt;span style=&quot;text-align: center;&quot;&gt;LoanAccountBean&lt;/span&gt;(int, int, double, double, int, double, double, String)&lt;/div&gt;&lt;div&gt;+ getLoanAccountNo(): int&lt;/div&gt;&lt;div&gt;+ setLoanAccountNo(int): void&lt;/div&gt;&lt;div&gt;+ getCustomerACno(): int&lt;/div&gt;&lt;div&gt;+ setCustomerACno(int): void&lt;/div&gt;&lt;div&gt;+ getLoanAmount(): double&lt;/div&gt;&lt;div&gt;+ setLoanAmount(double): void&lt;/div&gt;&lt;div&gt;+ getInterestRate(): double&lt;/div&gt;&lt;div&gt;+ setInterestRate(double): void&lt;/div&gt;&lt;div&gt;+ getLoanTerm(): int&lt;/div&gt;&lt;div&gt;+ setLoanTerm(int): void&lt;/div&gt;&lt;div&gt;+ getMonthlyPayment(): double&lt;/div&gt;&lt;div&gt;+ setMonthlyPayment(double): void&lt;/div&gt;&lt;div&gt;&lt;div&gt;+ getRemainingLoan(): double&lt;/div&gt;&lt;div&gt;+ setRemainingLoan(double): void&lt;/div&gt;&lt;/div&gt;&lt;div&gt;+ getStatus(): String&lt;/div&gt;&lt;div&gt;+ setStatus(String): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="LePeyT_KOqL1H-3vX0gw-0">
+          <mxGeometry y="158" width="250" height="292" as="geometry" />
+        </mxCell>
+        <mxCell id="LePeyT_KOqL1H-3vX0gw-4" value="public class TransactionBean" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="49" y="500" width="220" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="LePeyT_KOqL1H-3vX0gw-5" value="- accountNo: int&lt;div&gt;- deposit: double&lt;/div&gt;&lt;div&gt;- withdraw: double&lt;/div&gt;&lt;div&gt;- accountType: String&lt;/div&gt;&lt;div&gt;- transaction_time: Timestamp&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="LePeyT_KOqL1H-3vX0gw-4">
+          <mxGeometry y="26" width="220" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="LePeyT_KOqL1H-3vX0gw-6" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="LePeyT_KOqL1H-3vX0gw-4">
+          <mxGeometry y="120" width="220" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="LePeyT_KOqL1H-3vX0gw-7" value="+&amp;nbsp;&lt;span style=&quot;text-align: center;&quot;&gt;TransactionBean&lt;/span&gt;()&lt;div&gt;+&amp;nbsp;&lt;span style=&quot;text-align: center;&quot;&gt;TransactionBean&lt;/span&gt;(int, int, int, String, Timestamp)&lt;/div&gt;&lt;div&gt;+ getAccountNo(): int&lt;/div&gt;&lt;div&gt;+ setAccountNo(int): void&lt;/div&gt;&lt;div&gt;+ getDeposit(): double&lt;/div&gt;&lt;div&gt;+ setDeposit(double): void&lt;/div&gt;&lt;div&gt;+ getWithdraw(): double&lt;/div&gt;&lt;div&gt;+ setWithdraw(double): void&lt;/div&gt;&lt;div&gt;+ getTransaction_time(): Timestamp&lt;/div&gt;&lt;div&gt;+ setTransaction_time(Timestamp): void&lt;/div&gt;&lt;div&gt;+ getAccountType(): String&lt;/div&gt;&lt;div&gt;+ setAccountType(String): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="LePeyT_KOqL1H-3vX0gw-4">
+          <mxGeometry y="128" width="220" height="222" as="geometry" />
+        </mxCell>
+        <mxCell id="LePeyT_KOqL1H-3vX0gw-9" value="bean" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="20" y="10" width="70" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="4wVr9N2needZRbS5Vj8u" name="exception package">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="e3eoppgYlPEk6AAjOVm--1" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=70;tabHeight=30;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="140" y="50" width="760" height="530" as="geometry" />
+        </mxCell>
+        <mxCell id="e3eoppgYlPEk6AAjOVm--2" value="public class AccountantException" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="350" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e3eoppgYlPEk6AAjOVm--4" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="e3eoppgYlPEk6AAjOVm--2">
+          <mxGeometry y="26" width="220" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="e3eoppgYlPEk6AAjOVm--5" value="&lt;div&gt;&lt;div&gt;+ AccountantException(String)&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="e3eoppgYlPEk6AAjOVm--2">
+          <mxGeometry y="34" width="220" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="e3eoppgYlPEk6AAjOVm--22" value="exception" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="50" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="e3eoppgYlPEk6AAjOVm--24" value="public class AccountException" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="350" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e3eoppgYlPEk6AAjOVm--25" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="e3eoppgYlPEk6AAjOVm--24">
+          <mxGeometry y="26" width="220" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="e3eoppgYlPEk6AAjOVm--26" value="&lt;div&gt;&lt;div&gt;+ AccountException(String)&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="e3eoppgYlPEk6AAjOVm--24">
+          <mxGeometry y="34" width="220" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="e3eoppgYlPEk6AAjOVm--27" value="public class CustomerException" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="350" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e3eoppgYlPEk6AAjOVm--28" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="e3eoppgYlPEk6AAjOVm--27">
+          <mxGeometry y="26" width="220" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="e3eoppgYlPEk6AAjOVm--29" value="&lt;div&gt;&lt;div&gt;+ CustomerException(String)&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="e3eoppgYlPEk6AAjOVm--27">
+          <mxGeometry y="34" width="220" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="e3eoppgYlPEk6AAjOVm--30" value="&lt;b&gt;Exception&lt;/b&gt;" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="465" y="230" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e3eoppgYlPEk6AAjOVm--31" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="e3eoppgYlPEk6AAjOVm--2" target="e3eoppgYlPEk6AAjOVm--30">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="340" y="320" as="sourcePoint" />
+            <mxPoint x="390" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3eoppgYlPEk6AAjOVm--32" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="e3eoppgYlPEk6AAjOVm--24" target="e3eoppgYlPEk6AAjOVm--30">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="360" as="sourcePoint" />
+            <mxPoint x="530" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3eoppgYlPEk6AAjOVm--33" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="e3eoppgYlPEk6AAjOVm--27" target="e3eoppgYlPEk6AAjOVm--30">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="340" y="370" as="sourcePoint" />
+            <mxPoint x="540" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ngrQF5G4FCcceuhmqQUH-1" value="extends" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="280" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ngrQF5G4FCcceuhmqQUH-2" value="extends" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="465" y="300" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ngrQF5G4FCcceuhmqQUH-3" value="extends" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="620" y="280" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="P0hH4TUm_DPmii95IbHa" name="dao package">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-PgAD-Z1aca9KGoUK_ub-1" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=70;tabHeight=30;tabPosition=left;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="40" y="10" width="1100" height="1630" as="geometry" />
+        </mxCell>
+        <mxCell id="HWpGQV_LoZmxKyiQmTA7-29" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.498;entryY=0.995;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;dashed=1;entryPerimeter=0;" parent="1" target="wflQyzhc1ZicIBhl_vmo-11" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="497" as="sourcePoint" />
+            <mxPoint x="434.9999999999998" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HWpGQV_LoZmxKyiQmTA7-30" value="implements" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="410" y="440" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wflQyzhc1ZicIBhl_vmo-2" value="&lt;i style=&quot;&quot;&gt;public &amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&amp;nbsp;&lt;/i&gt;&lt;b&gt;CustomerDAO&lt;/b&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="70" y="970" width="570" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="wflQyzhc1ZicIBhl_vmo-4" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="wflQyzhc1ZicIBhl_vmo-2" vertex="1">
+          <mxGeometry y="26" width="570" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="wflQyzhc1ZicIBhl_vmo-5" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ LoginCustomer(String username, String password, int accountno) throws CustomerException: CustomerBean&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ viewBalance(int cACno) throws CustomerException: double&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ Deposit(int cACno, double amount) throws CustomerException: double&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ Withdraw(int cACno, double amount) throws CustomerException: double&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ Transfer(int cACno, double amount, int cACno2) throws CustomerException: double&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ viewTransaction(int cACno) throws CustomerException: List&amp;lt;TransactionBean&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ viewFixedDepositAccounts(int customerACno) throws CustomerException: List&amp;lt;FixedDepositAccountBean&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ viewLoanAccounts(int customerACno) throws CustomerException: List&amp;lt;LoanAccountBean&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ getCustomerForPasswordResetById(String email, int customerId) throws CustomerException: CustomerBean&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ updatePasswordById(int customerId, String newPassword) throws CustomerException: void&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="wflQyzhc1ZicIBhl_vmo-2" vertex="1">
+          <mxGeometry y="34" width="570" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="wflQyzhc1ZicIBhl_vmo-9" value="&lt;i style=&quot;&quot;&gt;public &amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&amp;nbsp;&lt;/i&gt;&lt;b&gt;AccountantDAO&lt;/b&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="70" y="60" width="660" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="wflQyzhc1ZicIBhl_vmo-10" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="wflQyzhc1ZicIBhl_vmo-9" vertex="1">
+          <mxGeometry y="26" width="660" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="wflQyzhc1ZicIBhl_vmo-11" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ LoginAccountant(String username, String password) throws AccountantException: AccountantBean&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ addCustomer(String cname, String cmail, String cpass, String cmob, String cadd, String schoolName) throws CustomerException: int&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ addSavingsAccount(double cbal, int cid) throws AccountException: String&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ addCurrentAccount(double cbal, int cid, double overdraftFee, double overdraftLimit) throws AccountException: String&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ updateCustomer(int cACno, String cadd) throws CustomerException: String&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ viewCustomer(String cACno) throws CustomerException: CustomerBean&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ getCustomer(String cmail, String cmob) throws CustomerException: int&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ viewAllCustomers() throws CustomerException: List&amp;lt;CustomerBean&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ getAccountType(int accountNo) throws CustomerException: String&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ deleteAccount(int cACno) throws CustomerException: String&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ createFixedDepositAccount(int customerACno, double amount, int tenureInMonths) throws CustomerException: int&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ getFixedDepositAccountDetails(int fdAccountNo) throws CustomerException: FixedDepositAccountBean&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ getAllFixedDepositAccounts(int customerACno) throws CustomerException: List&amp;lt;FixedDepositAccountBean&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ updateFixedDepositAmount(int fdAccountNo) throws CustomerException: void&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ closeFixedDepositAccount(int fdAccountNo) throws CustomerException: boolean&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ createLoanAccount(int customerACno, double amount, int tenureInMonths) throws CustomerException: int&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ getLoanAccountDetails(int loanAccountNo) throws CustomerException: LoanAccountBean&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ getAllLoanAccounts(int customerACno) throws CustomerException: List&amp;lt;LoanAccountBean&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ updateLoanAmount(int loanAccountNo) throws CustomerException: void&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ closeLoanAccount(int loanAccountNo, boolean Override) throws CustomerException: boolean&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ calculateAndAddSavingsInterest(int accountNo) throws CustomerException: void&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="wflQyzhc1ZicIBhl_vmo-9" vertex="1">
+          <mxGeometry y="34" width="660" height="326" as="geometry" />
+        </mxCell>
+        <mxCell id="HlNRDMW3JUHujs0JieR5-1" value="&lt;i style=&quot;&quot;&gt;public class&amp;nbsp;&lt;/i&gt;&lt;b&gt;CustomerDAO&lt;/b&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="70" y="1310" width="570" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="HlNRDMW3JUHujs0JieR5-2" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="HlNRDMW3JUHujs0JieR5-1" vertex="1">
+          <mxGeometry y="26" width="570" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="HlNRDMW3JUHujs0JieR5-3" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ LoginCustomer(String username, String password, int accountno) throws CustomerException: CustomerBean&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ viewBalance(int cACno) throws CustomerException: double&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ Deposit(int cACno, double amount) throws CustomerException: double&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ Withdraw(int cACno, double amount) throws CustomerException: double&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ Transfer(int fromAccount, double amount, int toAccount) throws CustomerException: double&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- checkAccount(int cACno): boolean&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ viewTransaction(int cACno) throws CustomerException: List&amp;lt;TransactionBean&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ viewFixedDepositAccounts(int customerACno) throws CustomerException: List&amp;lt;FixedDepositAccountBean&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ viewLoanAccounts(int customerACno) throws CustomerException: List&amp;lt;LoanAccountBean&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ getCustomerForPasswordResetById(String email, int customerId) throws CustomerException: CustomerBean&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ updatePasswordById(int customerId, String newPassword) throws CustomerException: void&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="HlNRDMW3JUHujs0JieR5-1" vertex="1">
+          <mxGeometry y="34" width="570" height="226" as="geometry" />
+        </mxCell>
+        <mxCell id="HlNRDMW3JUHujs0JieR5-5" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;dashed=1;" parent="1" source="HlNRDMW3JUHujs0JieR5-1" target="wflQyzhc1ZicIBhl_vmo-5" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="1170" as="sourcePoint" />
+            <mxPoint x="440" y="1120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HlNRDMW3JUHujs0JieR5-6" value="implements" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="370" y="1250" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-PgAD-Z1aca9KGoUK_ub-2" value="dao" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="12" width="80" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-1" value="&lt;i style=&quot;&quot;&gt;public &amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&amp;nbsp;&lt;/i&gt;&lt;b&gt;InterestCalculator&lt;/b&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="60" width="360" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-2" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="eDl_L3D1KsYsg60KqDf5-1">
+          <mxGeometry y="26" width="360" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-3" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;~ calculateInterest(double principal, int timeInMonths): double&lt;/p&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="eDl_L3D1KsYsg60KqDf5-1">
+          <mxGeometry y="34" width="360" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-4" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.497;entryY=0.917;entryDx=0;entryDy=0;dashed=1;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="eDl_L3D1KsYsg60KqDf5-6" target="eDl_L3D1KsYsg60KqDf5-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="939" y="200" as="sourcePoint" />
+            <mxPoint x="939.5" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-5" value="implements" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="805" y="150" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-6" value="&lt;i style=&quot;&quot;&gt;public class&amp;nbsp;&lt;/i&gt;LoanInterestCalculator" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="210" width="170" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-7" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="eDl_L3D1KsYsg60KqDf5-6">
+          <mxGeometry y="40" width="170" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-8" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ calculateInterest(double principal, int timeInMonths): double&lt;/p&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="eDl_L3D1KsYsg60KqDf5-6">
+          <mxGeometry y="48" width="170" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-9" value="&lt;i style=&quot;&quot;&gt;public class&amp;nbsp;&lt;/i&gt;FixedDepositInterestCalculator" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="832.5" y="400" width="215" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-10" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="eDl_L3D1KsYsg60KqDf5-9">
+          <mxGeometry y="40" width="215" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-11" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ calculateInterest(double principal, int timeInMonths): double&lt;/p&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="eDl_L3D1KsYsg60KqDf5-9">
+          <mxGeometry y="48" width="215" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-12" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.497;entryY=1;entryDx=0;entryDy=0;dashed=1;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="eDl_L3D1KsYsg60KqDf5-9" target="eDl_L3D1KsYsg60KqDf5-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="845" y="210" as="sourcePoint" />
+            <mxPoint x="949" y="137" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-13" value="implements" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="950" y="340" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-14" value="&lt;i style=&quot;&quot;&gt;public class&amp;nbsp;&lt;/i&gt;SavingsInterestCalculator" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="190" width="190" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-15" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="eDl_L3D1KsYsg60KqDf5-14">
+          <mxGeometry y="40" width="190" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-16" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ calculateInterest(double principal, int timeInMonths): double&lt;/p&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="eDl_L3D1KsYsg60KqDf5-14">
+          <mxGeometry y="48" width="190" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-17" value="" style="endArrow=classic;html=1;rounded=0;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="eDl_L3D1KsYsg60KqDf5-14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="845" y="210" as="sourcePoint" />
+            <mxPoint x="940" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eDl_L3D1KsYsg60KqDf5-18" value="implements" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1005" y="150" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dByVEIu7ADJiwRbQk1YN-1" value="&lt;i&gt;public class&amp;nbsp;&lt;/i&gt;&lt;b&gt;AccountantDAOImpl&lt;/b&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="500" width="660" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="dByVEIu7ADJiwRbQk1YN-2" value="&lt;div&gt;- interestCalculators: Map&amp;lt;String, InterestCalculator&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="dByVEIu7ADJiwRbQk1YN-1">
+          <mxGeometry y="26" width="660" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="dByVEIu7ADJiwRbQk1YN-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="dByVEIu7ADJiwRbQk1YN-1">
+          <mxGeometry y="52" width="660" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="dByVEIu7ADJiwRbQk1YN-4" value="&lt;div&gt;+ AccountantDAOimpl()&lt;/div&gt;&lt;div&gt;- calculateInterest(String accountType, double principal, int timeInMonths): double&lt;/div&gt;&lt;div&gt;+ LoginAccountant(String username, String password) throws AccountantException: AccountantBean&lt;/div&gt;&lt;div&gt;+ addCustomer(String cname, String cmail, String cpass, String cmob, String cadd, String schoolName) throws CustomerException: int&lt;/div&gt;&lt;div&gt;+ addSavingsAccount(double cbal, int cid) throws AccountException: String&lt;/div&gt;&lt;div&gt;+ addCurrentAccount(double cbal, int cid, double overdraftFee, double overdraftLimit) throws AccountException: String&lt;/div&gt;&lt;div&gt;+ updateCustomer(int cACno, String cadd) throws CustomerException: String&lt;/div&gt;&lt;div&gt;+ deleteAccount(int cACno) throws CustomerException: String&lt;/div&gt;&lt;div&gt;+ viewCustomer(String cACno) throws CustomerException: CustomerBean&lt;/div&gt;&lt;div&gt;+ viewAllCustomers() throws CustomerException: List&amp;lt;CustomerBean&amp;gt;&lt;/div&gt;&lt;div&gt;+ getAccountType(int accountNo) throws CustomerException: String&lt;/div&gt;&lt;div&gt;+ getCustomer(String cmail, String cmob) throws CustomerException: int&lt;/div&gt;&lt;div&gt;+ createFixedDepositAccount(int customerACno, double amount, int tenureInMonths) throws CustomerException: int&lt;/div&gt;&lt;div&gt;+ getFixedDepositAccountDetails(int fdAccountNo) throws CustomerException: FixedDepositAccountBean&lt;/div&gt;&lt;div&gt;+ getAllFixedDepositAccounts(int customerACno) throws CustomerException: List&amp;lt;FixedDepositAccountBean&amp;gt;&lt;/div&gt;&lt;div&gt;+ updateFixedDepositAmount(int fdAccountNo) throws CustomerException: void&lt;/div&gt;&lt;div&gt;+ closeFixedDepositAccount(int fdAccountNo) throws CustomerException: boolean&lt;/div&gt;&lt;div&gt;+ createLoanAccount(int customerACno, double amount, int tenureInMonths) throws CustomerException: int&lt;/div&gt;&lt;div&gt;+ getLoanAccountDetails(int loanAccountId) throws CustomerException: LoanAccountBean&lt;/div&gt;&lt;div&gt;+ getAllLoanAccounts(int customerACno) throws CustomerException: List&amp;lt;LoanAccountBean&amp;gt;&lt;/div&gt;&lt;div&gt;+ updateLoanAmount(int loanAccountId) throws CustomerException: void&lt;/div&gt;&lt;div&gt;+ closeLoanAccount(int loanAccountId, boolean override) throws CustomerException: boolean&lt;/div&gt;&lt;div&gt;+ calculateAndAddSavingsInterest(int accountNo) throws CustomerException: void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="dByVEIu7ADJiwRbQk1YN-1">
+          <mxGeometry y="60" width="660" height="360" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="Of_Alx-cwYJDANssPi2J" name="mainwork package">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Ot0PnRHDDLdPa_NLp8OG-1" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=70;tabHeight=30;tabPosition=left;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="40" y="10" width="1010" height="1490" as="geometry" />
+        </mxCell>
+        <mxCell id="Ot0PnRHDDLdPa_NLp8OG-2" value="mainwork" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="10" width="100" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Ot0PnRHDDLdPa_NLp8OG-3" value="MainGUI_Desktop" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="195" y="190" width="700" height="730" as="geometry" />
+        </mxCell>
+        <mxCell id="Ot0PnRHDDLdPa_NLp8OG-4" value="&lt;div&gt;- mainPanel: JPanel&lt;/div&gt;&lt;div&gt;- contentPanel: JPanel&lt;/div&gt;&lt;div&gt;- cardLayout: CardLayout&lt;/div&gt;&lt;div&gt;- accountantDAO: AccountantDAO&lt;/div&gt;&lt;div&gt;- customerDAO: CustomerDAO&lt;/div&gt;&lt;div&gt;- customerUsernameField: JTextField&lt;/div&gt;&lt;div&gt;- customerAccountField: JTextField&amp;nbsp;&lt;/div&gt;&lt;div&gt;- accountantUsernameField: JTextField&lt;/div&gt;&lt;div&gt;- customerPasswordField: JPasswordField&lt;/div&gt;&lt;div&gt;- accountantPasswordField: JPasswordField&lt;/div&gt;&lt;div&gt;&lt;u&gt;- STANDARD_FONT: Font {final}&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;u&gt;- LOGIN_BUTTON_COLOR: Color {final}&lt;/u&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="Ot0PnRHDDLdPa_NLp8OG-3" vertex="1">
+          <mxGeometry y="26" width="700" height="184" as="geometry" />
+        </mxCell>
+        <mxCell id="Ot0PnRHDDLdPa_NLp8OG-5" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="Ot0PnRHDDLdPa_NLp8OG-3" vertex="1">
+          <mxGeometry y="210" width="700" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="Ot0PnRHDDLdPa_NLp8OG-6" value="&lt;div&gt;+ MainGUI_Desktop()&lt;/div&gt;&lt;div&gt;&lt;div&gt;- updateAllAccountTypes(): void&lt;/div&gt;&lt;div&gt;- updateAllFixedDepositAccounts(): void&lt;/div&gt;&lt;div&gt;- updateAllSavingsAccounts(): void&lt;/div&gt;&lt;div&gt;- updateAllLoanAccounts(): void&lt;/div&gt;&lt;div&gt;- clearInputFields(): void&lt;/div&gt;&lt;div&gt;- createMenuPanel(): JPanel&lt;/div&gt;&lt;div&gt;- createAccountantPanel(): JPanel&lt;/div&gt;&lt;div&gt;- createCustomerPanel(): JPanel&lt;/div&gt;&lt;div&gt;- handleForgotPassword(): void&lt;/div&gt;&lt;div&gt;- loginAccountant(): void&lt;/div&gt;&lt;div&gt;- loginCustomer(): void&lt;/div&gt;&lt;div&gt;- showAccountantOperations(): void&lt;/div&gt;&lt;div&gt;- showCustomerOperations(int accountNo): void&lt;/div&gt;&lt;div&gt;- showFixedDepositOperations(): void&lt;/div&gt;&lt;div&gt;- showLoanOperations(): void&lt;/div&gt;&lt;div&gt;- handleFixedDepositOperation(String operation): void&lt;/div&gt;&lt;div&gt;- handleLoanOperation(String operation): void&lt;/div&gt;&lt;div&gt;- createFixedDeposit(): void&lt;/div&gt;&lt;div&gt;- viewFixedDeposits(): void&lt;/div&gt;&lt;div&gt;- viewFixedDepositDetails(): void&lt;/div&gt;&lt;div&gt;- closeFixedDeposit(): void&lt;/div&gt;&lt;div&gt;- viewCustomerFixedDepositAccounts(int accountNo): void&lt;/div&gt;&lt;div&gt;- viewCustomerLoanAccounts(int accountNo): void&lt;/div&gt;&lt;div&gt;- createNewLoan(): void&lt;/div&gt;&lt;div&gt;- viewAllLoans(): void&lt;/div&gt;&lt;div&gt;- viewLoanDetails(): void&lt;/div&gt;&lt;div&gt;- updateLoanPayment(): void&lt;/div&gt;&lt;div&gt;- closeLoan(): void&lt;/div&gt;&lt;div&gt;- handleAccountantOperation(String operation): void&lt;/div&gt;&lt;div&gt;- handleCustomerOperation(String operation, int accountNo): void&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;u&gt;+ main(args: String[]): void&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="Ot0PnRHDDLdPa_NLp8OG-3" vertex="1">
+          <mxGeometry y="218" width="700" height="512" as="geometry" />
+        </mxCell>
+        <mxCell id="Ot0PnRHDDLdPa_NLp8OG-7" value="&lt;b&gt;JFrame&lt;/b&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="490" y="80" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="KI7K4Dj7iQQ0BZBSeTbj-2" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="Ot0PnRHDDLdPa_NLp8OG-3" target="Ot0PnRHDDLdPa_NLp8OG-7" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="480" y="200" as="sourcePoint" />
+            <mxPoint x="530" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KI7K4Dj7iQQ0BZBSeTbj-3" value="extends" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="555" y="150" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KI7K4Dj7iQQ0BZBSeTbj-4" value="Create_Accountants" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="315" y="1030" width="460" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="KI7K4Dj7iQQ0BZBSeTbj-5" value="&lt;div&gt;&lt;u&gt;+ DB_URL: String {final} = &quot;jdbc:mysql://localhost:3306/bank&quot;&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;u&gt;+ USER: String {final} = &quot;root&quot;&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;u&gt;+ PASS: String {final} = &quot;root&quot;&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="KI7K4Dj7iQQ0BZBSeTbj-4" vertex="1">
+          <mxGeometry y="26" width="460" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="KI7K4Dj7iQQ0BZBSeTbj-6" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="KI7K4Dj7iQQ0BZBSeTbj-4" vertex="1">
+          <mxGeometry y="90" width="460" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="KI7K4Dj7iQQ0BZBSeTbj-7" value="&lt;div&gt;&lt;u&gt;+ main(args: String[]): void&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="KI7K4Dj7iQQ0BZBSeTbj-4" vertex="1">
+          <mxGeometry y="98" width="460" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="KI7K4Dj7iQQ0BZBSeTbj-8" value="Create_DB" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="315" y="1230" width="460" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="KI7K4Dj7iQQ0BZBSeTbj-9" value="&lt;div&gt;&lt;u&gt;+ DB_URL: String {final} = &quot;jdbc:mysql://localhost:3306/bank&quot;&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;u&gt;+ USER: String {final} = &quot;root&quot;&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;u&gt;+ PASS: String {final} = &quot;root&quot;&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="KI7K4Dj7iQQ0BZBSeTbj-8" vertex="1">
+          <mxGeometry y="26" width="460" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="KI7K4Dj7iQQ0BZBSeTbj-10" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="KI7K4Dj7iQQ0BZBSeTbj-8" vertex="1">
+          <mxGeometry y="90" width="460" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="KI7K4Dj7iQQ0BZBSeTbj-11" value="&lt;div&gt;&lt;u&gt;+ main(args: String[]): void&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="KI7K4Dj7iQQ0BZBSeTbj-8" vertex="1">
+          <mxGeometry y="98" width="460" height="42" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="82bfgEpaf29_NQhsiK2Y" name="utility package">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="kq9Et4gf3_hYoOEVeQOe-1" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=70;tabHeight=30;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="70" y="30" width="770" height="540" as="geometry" />
+        </mxCell>
+        <mxCell id="kq9Et4gf3_hYoOEVeQOe-2" value="utility" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="30" width="80" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="kq9Et4gf3_hYoOEVeQOe-3" value="DBUtil" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="130" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="kq9Et4gf3_hYoOEVeQOe-5" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="kq9Et4gf3_hYoOEVeQOe-3">
+          <mxGeometry y="26" width="170" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="kq9Et4gf3_hYoOEVeQOe-6" value="+&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;provideConnection(): Connection (static)&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%22%20style%3D%22shape%3Dfolder%3BfontStyle%3D1%3BspacingTop%3D10%3BtabWidth%3D70%3BtabHeight%3D30%3BtabPosition%3Dleft%3Bhtml%3D1%3BwhiteSpace%3Dwrap%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%2240%22%20y%3D%2210%22%20width%3D%221010%22%20height%3D%221490%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="kq9Et4gf3_hYoOEVeQOe-3">
+          <mxGeometry y="34" width="170" height="66" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
