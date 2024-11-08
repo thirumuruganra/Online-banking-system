@@ -26,14 +26,12 @@ public class AccountantDAOimpl implements AccountantDAO {
 	private final Map<String, InterestCalculator> interestCalculators;
     
 	public AccountantDAOimpl() {
-		// Initialize all interest calculators
 		interestCalculators = new HashMap<>();
 		interestCalculators.put("SAVINGS", new SavingsInterestCalculator());
 		interestCalculators.put("FIXED_DEPOSIT", new FixedDepositInterestCalculator());
 		interestCalculators.put("LOAN", new LoanInterestCalculator());
 	}
 	
-	// Generic interest calculation method
 	private double calculateInterest(String accountType, double principal, int timeInMonths) {
 		InterestCalculator calculator = interestCalculators.get(accountType);
 		return calculator.calculateInterest(principal, timeInMonths);
@@ -640,7 +638,7 @@ public class AccountantDAOimpl implements AccountantDAO {
 			
 			if (rs.next()) {
 				double balance = rs.getDouble("cbal");
-				double interest = calculateInterest("SAVINGS", balance, 1); // Monthly interest
+				double interest = calculateInterest("SAVINGS", balance, 1);
 				
 				PreparedStatement updatePs = conn.prepareStatement(
 					"UPDATE Account SET cbal = cbal + ? WHERE cACno = ?"

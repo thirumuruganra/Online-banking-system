@@ -10,7 +10,6 @@ import com.obs.exception.AccountantException;
 import com.obs.exception.CustomerException;
 
 public interface AccountantDAO {
-    // Existing methods
     public AccountantBean LoginAccountant(String username, String password) throws AccountantException;
     public int addCustomer(String cname, String cmail, String cpass, String cmob, String cadd, String schoolName) throws CustomerException;    
     public String addSavingsAccount(double cbal,int cid) throws AccountException;
@@ -22,20 +21,17 @@ public interface AccountantDAO {
     public String getAccountType(int accountNo) throws CustomerException;
     public String deleteAccount(int cACno) throws CustomerException;    
 
-    // Fixed Deposit methods
     public int createFixedDepositAccount(int customerACno, double amount, int tenureInMonths) throws CustomerException;
     public FixedDepositAccountBean getFixedDepositAccountDetails(int fdAccountNo) throws CustomerException;
     public List<FixedDepositAccountBean> getAllFixedDepositAccounts(int customerACno) throws CustomerException;
     public void updateFixedDepositAmount(int fdAccountNo) throws CustomerException;
     public boolean closeFixedDepositAccount(int fdAccountNo) throws CustomerException;
 
-    // Loan methods
     public int createLoanAccount(int customerACno, double amount, int tenureInMonths) throws CustomerException;
     public LoanAccountBean getLoanAccountDetails(int loanAccountNo) throws CustomerException;
     public List<LoanAccountBean> getAllLoanAccounts(int customerACno) throws CustomerException;
     public void updateLoanAmount(int loanAccountNo) throws CustomerException;
     public boolean closeLoanAccount(int loanAccountNo, boolean Override) throws CustomerException;
 
-    // New interest calculation methods
     public void calculateAndAddSavingsInterest(int accountNo) throws CustomerException;
 }
