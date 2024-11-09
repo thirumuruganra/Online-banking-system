@@ -58,7 +58,7 @@ public class Create_DB {
                     "deposit INT NOT NULL, " +
                     "withdraw INT NOT NULL, " +
                     "transaction_time TIMESTAMP, " +
-                    "accountType VARCHAR(20), " +
+                    "accountType VARCHAR(50), " +
                     "FOREIGN KEY(cACno) REFERENCES Account(cACno) ON DELETE CASCADE" +
                     ");";
             stmt.executeUpdate(createTransactionTable);

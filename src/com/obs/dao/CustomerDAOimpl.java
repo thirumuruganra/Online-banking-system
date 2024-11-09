@@ -178,18 +178,17 @@ public class CustomerDAOimpl implements CustomerDAO {
 						updateDest.setInt(2, toAccount);
 						updateDest.executeUpdate();
 						
-						// Record withdrawal transaction
-						PreparedStatement transPs = conn.prepareStatement("INSERT INTO transaction(cACno, deposit, withdraw, accountType, Transaction_time) VALUES(?, 0, ?, 'Transfer', CURRENT_TIMESTAMP)");
+						// In the Transfer method, modify the transaction insert statements:
+						PreparedStatement transPs = conn.prepareStatement("INSERT INTO transaction(cACno, deposit, withdraw, accountType, Transaction_time) VALUES(?, 0, ?, 'Transfer - To " + toAccount + "', CURRENT_TIMESTAMP)");
 						transPs.setInt(1, fromAccount);
 						transPs.setDouble(2, amount);
 						transPs.executeUpdate();
-						
-						// Record deposit transaction
-						PreparedStatement transPs2 = conn.prepareStatement("INSERT INTO transaction(cACno, deposit, withdraw, accountType, Transaction_time) VALUES(?, ?, 0, 'Transfer', CURRENT_TIMESTAMP)");
+
+						PreparedStatement transPs2 = conn.prepareStatement("INSERT INTO transaction(cACno, deposit, withdraw, accountType, Transaction_time) VALUES(?, ?, 0, 'Transfer - From " + fromAccount + "', CURRENT_TIMESTAMP)");
 						transPs2.setInt(1, toAccount);
 						transPs2.setDouble(2, amount);
 						transPs2.executeUpdate();
-						
+
 						conn.commit();
 						return sourceBalance - amount;
 					} else {

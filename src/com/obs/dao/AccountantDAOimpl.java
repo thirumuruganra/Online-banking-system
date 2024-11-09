@@ -17,6 +17,7 @@ import com.obs.bean.AccountantBean;
 import com.obs.bean.CustomerBean;
 import com.obs.bean.FixedDepositAccountBean;
 import com.obs.bean.LoanAccountBean;
+import com.obs.bean.TransactionBean;
 import com.obs.exception.AccountException;
 import com.obs.exception.AccountantException;
 import com.obs.exception.CustomerException;
@@ -662,4 +663,66 @@ public class AccountantDAOimpl implements AccountantDAO {
 			throw new CustomerException(e.getMessage());
 		}
 	}
+
+	public int getCustomerIdByAccountNo(int accountNo) throws CustomerException {
+		try (Connection conn = DBUtil.provideConnection()) {
+			PreparedStatement ps = conn.prepareStatement("SELECT cid FROM Account WHERE cACno = ?");
+			ps.setInt(1, accountNo);
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.next()) {
+				return rs.getInt("cid");
+			} else {
+				throw new CustomerException("No customer found for account number: " + accountNo);
+			}
+		} catch (SQLException e) {
+			throw new CustomerException(e.getMessage());
+		}
+	}	
+
+	public int getAccountNumberByCustomerId(int customerId) throws CustomerException {
+		try (Connection conn = DBUtil.provideConnection()) {
+			PreparedStatement ps = conn.prepareStatement("SELECT cACno FROM Account WHERE cid = ?");
+			ps.setInt(1, customerId);
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.next()) {
+				return rs.getInt("cACno");
+			}
+			return 0; // Return 0 if no account found
+		} catch (SQLException e) {
+			throw new CustomerException(e.getMessage());
+		}
+	}
+	
+	public List<TransactionBean> getTransactionsBetweenDates(java.sql.Date startDate, java.sql.Date endDate) throws CustomerException {
+		List<TransactionBean> transactions = new ArrayList<>();
+		
+		try(Connection conn = DBUtil.provideConnection()) {
+			PreparedStatement ps = conn.prepareStatement(
+				"SELECT * FROM Transaction WHERE DATE(Transaction_time) BETWEEN ? AND ? ORDER BY Transaction_time"
+			);
+			
+			ps.setDate(1, startDate);
+			ps.setDate(2, endDate);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				TransactionBean transaction = new TransactionBean();
+				transaction.setAccountNo(rs.getInt("cACno"));
+				transaction.setDeposit(rs.getDouble("deposit"));
+				transaction.setWithdraw(rs.getDouble("withdraw"));
+				transaction.setAccountType(rs.getString("accountType"));
+				transaction.setTransaction_time(rs.getTimestamp("Transaction_time"));
+				
+				transactions.add(transaction);
+			}
+			
+		} catch(SQLException e) {
+			throw new CustomerException("Error retrieving transactions: " + e.getMessage());
+		}
+		
+		return transactions;
+	}	
 }

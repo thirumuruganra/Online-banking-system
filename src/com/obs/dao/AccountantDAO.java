@@ -5,6 +5,7 @@ import com.obs.bean.AccountantBean;
 import com.obs.bean.CustomerBean;
 import com.obs.bean.FixedDepositAccountBean;
 import com.obs.bean.LoanAccountBean;
+import com.obs.bean.TransactionBean;
 import com.obs.exception.AccountException;
 import com.obs.exception.AccountantException;
 import com.obs.exception.CustomerException;
@@ -34,4 +35,8 @@ public interface AccountantDAO {
     public boolean closeLoanAccount(int loanAccountNo, boolean Override) throws CustomerException;
 
     public void calculateAndAddSavingsInterest(int accountNo) throws CustomerException;
+    
+    public int getCustomerIdByAccountNo(int accountNo) throws CustomerException;
+    public int getAccountNumberByCustomerId(int customerId) throws CustomerException;
+    public List<TransactionBean> getTransactionsBetweenDates(java.sql.Date startDate, java.sql.Date endDate) throws CustomerException;
 }

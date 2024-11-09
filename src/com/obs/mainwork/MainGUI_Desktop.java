@@ -6,6 +6,17 @@ import java.awt.event.*;
 import java.util.List;
 import java.util.Scanner;
 
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.data.category.DefaultCategoryDataset;
+import java.text.SimpleDateFormat;
+import java.util.Map;
+import java.util.TreeMap;
+
 import com.obs.dao.*;
 import com.obs.bean.*;
 import com.obs.exception.*;
@@ -24,7 +35,7 @@ public class MainGUI_Desktop extends JFrame {
 
     public MainGUI_Desktop() {
         setTitle("Online Banking System");
-        setSize(800, 600);
+        setSize(1200, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         accountantDAO = new AccountantDAOimpl();
@@ -74,6 +85,73 @@ public class MainGUI_Desktop extends JFrame {
         timer.start();
     }
 
+    private <T> void displayAccountDetails(T account, String title) {
+        String details = "";
+        
+        if (account instanceof CustomerBean) {
+            CustomerBean customer = (CustomerBean) account;
+            try {
+                details = String.format("""
+                    Account No: %d
+                    Account Type: %s
+                    Name: %s
+                    Balance: %.2f
+                    Email: %s
+                    Mobile: %s
+                    Address: %s""",
+                    customer.getcACno(),
+                    accountantDAO.getAccountType(customer.getcACno()),
+                    customer.getCname(),
+                    customer.getCbal(), 
+                    customer.getCmail(),
+                    customer.getCmob(),
+                    customer.getCadd());
+            } catch (CustomerException e) {
+                details = "Error retrieving account details: " + e.getMessage();
+            }
+        } 
+        else if (account instanceof LoanAccountBean) {
+            LoanAccountBean loan = (LoanAccountBean) account;
+            details = String.format("""
+                Loan ID: %d
+                Customer Account: %d
+                Loan Amount: %.2f
+                Interest Rate: %.2f%%
+                Loan Term: %d months
+                Monthly Payment: %.2f
+                Remaining Amount: %.2f
+                Status: %s""",
+                loan.getLoanAccountId(),
+                loan.getCustomerACno(),
+                loan.getLoanAmount(),
+                loan.getInterestRate(),
+                loan.getLoanTerm(),
+                loan.getMonthlyPayment(),
+                loan.getRemainingLoan(),
+                loan.getLoanStatus());
+        }
+        else if (account instanceof FixedDepositAccountBean) {
+            FixedDepositAccountBean fd = (FixedDepositAccountBean) account;
+            details = String.format("""
+                FD Account No: %d
+                Customer Account No: %d
+                Amount: %.2f
+                Interest Rate: %.2f%%
+                Start Date: %s
+                Maturity Date: %s
+                Status: %s""",
+                fd.getFdAccountNo(),
+                fd.getCustomerACno(),
+                fd.getAmount(),
+                fd.getInterestRate(),
+                fd.getStartDate(),
+                fd.getMaturityDate(),
+                fd.getStatus());
+        }
+    
+        JOptionPane.showMessageDialog(this, details, title, JOptionPane.INFORMATION_MESSAGE);
+    }
+        
     private void updateAllAccountTypes() {
         updateAllFixedDepositAccounts();
         updateAllSavingsAccounts();
@@ -430,17 +508,17 @@ public class MainGUI_Desktop extends JFrame {
             // Account Management
             {"Add New Customer Account", "Edit Existing Account", "Remove Account"},
             // View Operations
-            {"View Account Details", "View All Accounts", "View Customer Transactions"},
+            {"View Account Details", "View All Accounts", "View Customer Transactions", "View Weekly Money Flow Report"},
             // Special Account Operations
             {"Add New Account for Existing Customer", "Manage Fixed Deposit Accounts", "Manage Loan Accounts"}
         };
-        
+                
         // Add buttons in groups with proper spacing
         int gridy = 0;
         for (String[] group : operationGroups) {
             for (String operation : group) {
                 JButton button = new JButton(operation);
-                button.setPreferredSize(new Dimension(250, 40));
+                button.setPreferredSize(new Dimension(350, 40));
                 button.setFont(new Font("Bookman Old Style", Font.PLAIN, 14));
                 
                 gbc.gridx = 0;
@@ -495,7 +573,9 @@ public class MainGUI_Desktop extends JFrame {
             // Transfer and History
             {"Transfer Money", "View Transaction History"},
             // Special Accounts
-            {"View Fixed Deposit Accounts", "View Loan Accounts"}
+            {"View Fixed Deposit Accounts", "Create Fixed Deposit"},
+            // Loan Operations
+            {"View Loan Accounts", "Pay Loan Installment"}
         };
         
         // Add buttons in groups with proper spacing
@@ -664,7 +744,105 @@ public class MainGUI_Desktop extends JFrame {
         contentPanel.add(operationsPanel, "loanOperations");
         cardLayout.show(contentPanel, "loanOperations");
     }
+    
+    private void displayWeeklyMoneyFlowReport() {
+        try {
+            java.sql.Date endDate = new java.sql.Date(System.currentTimeMillis());
+            java.sql.Date startDate = new java.sql.Date(System.currentTimeMillis() - 7 * 24 * 60 * 60 * 1000L);
+            List<TransactionBean> weeklyTransactions = accountantDAO.getTransactionsBetweenDates(startDate, endDate);
+    
+            Map<String, double[]> dailyTotals = new TreeMap<>();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd");
             
+            for (TransactionBean transaction : weeklyTransactions) {
+                String day = dateFormat.format(transaction.getTransaction_time());
+                dailyTotals.putIfAbsent(day, new double[2]);
+                
+                String transactionType = transaction.getAccountType();
+                
+                if (transactionType.equals("FD Closure") || transactionType.equals("Fixed Deposit")) {
+                    // Fixed Deposit transactions are outflow from bank perspective
+                    dailyTotals.get(day)[1] += transaction.getDeposit();
+                } else if (transactionType.equals("Loan Payment")) {
+                    // Loan payments are inflow to bank
+                    dailyTotals.get(day)[0] += transaction.getWithdraw();
+                } else {
+                    // Regular transactions
+                    dailyTotals.get(day)[0] += transaction.getDeposit();    // Regular deposits are inflow
+                    dailyTotals.get(day)[1] += transaction.getWithdraw();   // Regular withdrawals are outflow
+                }
+            }
+            
+            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+            double totalInflow = 0;
+            double totalOutflow = 0;
+    
+            for (Map.Entry<String, double[]> entry : dailyTotals.entrySet()) {
+                dataset.addValue(entry.getValue()[0], "Inflow", entry.getKey());
+                dataset.addValue(entry.getValue()[1], "Outflow", entry.getKey());
+                totalInflow += entry.getValue()[0];
+                totalOutflow += entry.getValue()[1];
+            }
+    
+            JFreeChart chart = ChartFactory.createBarChart(
+                "Weekly Money Flow", 
+                "Date", 
+                "Amount",
+                dataset,
+                PlotOrientation.VERTICAL,
+                true,
+                true,
+                false
+            );
+    
+            CategoryPlot plot = chart.getCategoryPlot();
+            BarRenderer renderer = (BarRenderer) plot.getRenderer();
+            renderer.setSeriesPaint(0, new Color(40, 167, 69));  // Green for inflow
+            renderer.setSeriesPaint(1, new Color(220, 53, 69));  // Red for outflow
+            plot.setBackgroundPaint(Color.WHITE);
+            plot.setRangeGridlinePaint(Color.GRAY);
+            
+            JPanel mainPanel = new JPanel(new BorderLayout());
+            
+            ChartPanel chartPanel = new ChartPanel(chart);
+            chartPanel.setPreferredSize(new Dimension(800, 400));
+            mainPanel.add(chartPanel, BorderLayout.CENTER);
+            
+            JPanel totalsPanel = new JPanel(new GridLayout(1, 3, 10, 0));
+            totalsPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+            
+            JLabel inflowLabel = new JLabel(String.format("Total Inflow: Rs %.2f", totalInflow));
+            JLabel outflowLabel = new JLabel(String.format("Total Outflow: Rs %.2f", totalOutflow));
+            JLabel netFlowLabel = new JLabel(String.format("Net Flow: Rs%.2f", totalInflow - totalOutflow));
+            
+            Font boldFont = new Font("Bookman Old Style", Font.BOLD, 14);
+            inflowLabel.setFont(boldFont);
+            outflowLabel.setFont(boldFont);
+            netFlowLabel.setFont(boldFont);
+            
+            inflowLabel.setForeground(new Color(40, 167, 69));
+            outflowLabel.setForeground(new Color(220, 53, 69));
+            netFlowLabel.setForeground(new Color(0, 123, 255));
+            
+            totalsPanel.add(inflowLabel);
+            totalsPanel.add(outflowLabel);
+            totalsPanel.add(netFlowLabel);
+            
+            mainPanel.add(totalsPanel, BorderLayout.SOUTH);
+    
+            JDialog dialog = new JDialog();
+            dialog.setTitle("Weekly Money Flow Report");
+            dialog.setModal(true);
+            dialog.setContentPane(mainPanel);
+            dialog.pack();
+            dialog.setLocationRelativeTo(null);
+            dialog.setVisible(true);
+    
+        } catch (CustomerException e) {
+            JOptionPane.showMessageDialog(this, "Error generating report: " + e.getMessage());
+        }
+    }
+        
     private void handleFixedDepositOperation(String operation) {
         switch (operation) {
             case "Create Fixed Deposit":
@@ -777,14 +955,7 @@ public class MainGUI_Desktop extends JFrame {
             try {
                 int fdAccountNo = Integer.parseInt(fdAccountNoStr);
                 FixedDepositAccountBean fd = accountantDAO.getFixedDepositAccountDetails(fdAccountNo);
-                String details = "FD Account No: " + fd.getFdAccountNo() + "\n" +
-                                 "Customer Account No: " + fd.getCustomerACno() + "\n" +
-                                 "Amount: " + fd.getAmount() + "\n" +
-                                 "Interest Rate: " + fd.getInterestRate() + "\n" +
-                                 "Start Date: " + fd.getStartDate() + "\n" +
-                                 "Maturity Date: " + fd.getMaturityDate() + "\n" +
-                                 "Status: " + fd.getStatus();
-                JOptionPane.showMessageDialog(this, details, "Fixed Deposit Details", JOptionPane.INFORMATION_MESSAGE);
+                displayAccountDetails(fd, "Fixed Deposit Account Details");
             } catch (CustomerException e) {
                 JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
             }
@@ -945,22 +1116,7 @@ public class MainGUI_Desktop extends JFrame {
             try {
                 int loanId = Integer.parseInt(loanIdStr);
                 LoanAccountBean loan = accountantDAO.getLoanAccountDetails(loanId);
-                String details = String.format("""
-                    Loan ID: %d
-                    Customer Account: %d
-                    Loan Amount: %.2f
-                    Interest Rate: %.2f%%
-                    Loan Term: %d months
-                    Monthly Payment: %.2f
-                    Remaining Amount: %.2f
-                    Status: %s
-                    """,
-                    loan.getLoanAccountId(), loan.getCustomerACno(),
-                    loan.getLoanAmount(), loan.getInterestRate(),
-                    loan.getLoanTerm(), loan.getMonthlyPayment(),
-                    loan.getRemainingLoan(), loan.getLoanStatus());
-                
-                JOptionPane.showMessageDialog(this, details, "Loan Details", JOptionPane.INFORMATION_MESSAGE);
+                displayAccountDetails(loan, "Loan Account Details");
             } catch (CustomerException e) {
                 JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
             }
@@ -1136,21 +1292,9 @@ public class MainGUI_Desktop extends JFrame {
             case "View Account Details":
                 String accountToView = JOptionPane.showInputDialog("Enter Customer Account No.");
                 try {
-                    CustomerBean customer = a.viewCustomer(accountToView);
+                    CustomerBean customer = accountantDAO.viewCustomer(accountToView);
                     if (customer != null) {
-                        String accountType = a.getAccountType(customer.getcACno());
-                        
-                        String details = "Account No: " + customer.getcACno() + "\n" +
-                                        "Account Type: " + accountType + "\n" +
-                                        "Name: " + customer.getCname() + "\n" +
-                                        "Balance: " + customer.getCbal() + "\n" +
-                                        "Email: " + customer.getCmail() + "\n" +
-                                        "Password: " + customer.getCpass() + "\n" +
-                                        "Mobile: " + customer.getCmob() + "\n" +
-                                        "Address: " + customer.getCadd();
-                        JOptionPane.showMessageDialog(this, details);
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Account does not Exist");
+                        displayAccountDetails(customer, "Customer Account Details");
                     }
                 } catch (CustomerException e) {
                     JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
@@ -1161,15 +1305,18 @@ public class MainGUI_Desktop extends JFrame {
             case "View All Accounts":
                 try {
                     List<CustomerBean> allCustomers = a.viewAllCustomers();
-                    String[] columnNames = {"Account No", "Account Type", "Name", "Balance", "Email", "Mobile", "Address"};
-                    Object[][] data = new Object[allCustomers.size()][7];
+                    String[] columnNames = {"Customer ID", "Account No", "Account Type", "Name", "Balance", "Email", "Mobile", "Address"};
+                    Object[][] data = new Object[allCustomers.size()][8];
             
                     for (int i = 0; i < allCustomers.size(); i++) {
                         CustomerBean customer = allCustomers.get(i);
                         String accountType = a.getAccountType(customer.getcACno());
+                        // Get cid directly from the Account table using account number
+                        int cid = a.getCustomerIdByAccountNo(customer.getcACno());
                         data[i] = new Object[]{
+                            cid,
                             customer.getcACno(),
-                            accountType,
+                            accountType, 
                             customer.getCname(),
                             customer.getCbal(),
                             customer.getCmail(),
@@ -1187,7 +1334,7 @@ public class MainGUI_Desktop extends JFrame {
                     JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
                 }
                 break;
-            
+                        
             case "Add New Account for Existing Customer":
                 JPanel panel2 = new JPanel(new GridLayout(0, 2, 5, 5));
                 JTextField emailField2 = new JTextField();
@@ -1215,8 +1362,23 @@ public class MainGUI_Desktop extends JFrame {
             
                     try {
                         int customerId = a.getCustomer(customerEmail, customerMobile);
-                        String newAccountNumber;
+            
+                        // Get existing account number for this customer
+                        int existingAccountNo = a.getAccountNumberByCustomerId(customerId);
                         
+                        // Check if customer already has the selected account type
+                        if (existingAccountNo > 0) {
+                            String existingAccountType = a.getAccountType(existingAccountNo);
+                            if (existingAccountType.equals(selectedAccountType)) {
+                                JOptionPane.showMessageDialog(this,
+                                    "Customer already has a " + selectedAccountType + " account. Only one account of each type is allowed.",
+                                    "Account Creation Failed",
+                                    JOptionPane.WARNING_MESSAGE);
+                                return;
+                            }
+                        }
+            
+                        String newAccountNumber;
                         if ("Savings".equals(selectedAccountType)) {
                             newAccountNumber = a.addSavingsAccount(newAccountBalance, customerId);
                         } else {
@@ -1235,26 +1397,21 @@ public class MainGUI_Desktop extends JFrame {
                     }
                 }
                 break;
-            
+                        
             case "View Customer Transactions":
                 int transactionAccountNo = Integer.parseInt(JOptionPane.showInputDialog("Enter Account No. to view Transaction Records"));
                 CustomerDAO cd = new CustomerDAOimpl();
                 try {
                     List<TransactionBean> transactions = cd.viewTransaction(transactionAccountNo);
-                    String[] columnNames = {"Account No.", "Amount", "Transaction Type", "Date and Time"};
-                    Object[][] data = new Object[transactions.size()][4];
+                    String[] columnNames = {"Account No.", "Credits", "Debits", "Transaction Type", "Date and Time"};
+                    Object[][] data = new Object[transactions.size()][5];
                     
                     for (int i = 0; i < transactions.size(); i++) {
                         TransactionBean v = transactions.get(i);
-                        String amount = "";
-                        if (v.getDeposit() != 0) {
-                            amount = "+" + v.getDeposit();
-                        } else if (v.getWithdraw() != 0) {
-                            amount = "- " + v.getWithdraw();
-                        }
                         data[i] = new Object[]{
                             v.getAccountNo(),
-                            amount,
+                            v.getDeposit() != 0 ? String.format("%.2f", v.getDeposit()) : "",
+                            v.getWithdraw() != 0 ? String.format("%.2f", v.getWithdraw()) : "",
                             v.getAccountType(),
                             v.getTransaction_time()
                         };
@@ -1262,7 +1419,7 @@ public class MainGUI_Desktop extends JFrame {
                     
                     JTable table = new JTable(data, columnNames);
                     JScrollPane scrollPane = new JScrollPane(table);
-                    scrollPane.setPreferredSize(new Dimension(600, 300));
+                    scrollPane.setPreferredSize(new Dimension(800, 300));
                     
                     JOptionPane.showMessageDialog(this, scrollPane, "Transaction History for Account " + transactionAccountNo, JOptionPane.PLAIN_MESSAGE);
                 } catch (CustomerException e) {
@@ -1270,13 +1427,16 @@ public class MainGUI_Desktop extends JFrame {
                 }
                 break;
             
-            
             case "Manage Fixed Deposit Accounts":
                 showFixedDepositOperations();
                 break;
 
             case "Manage Loan Accounts":
                 showLoanOperations();
+                break;
+
+            case "View Weekly Money Flow Report":
+                displayWeeklyMoneyFlowReport();
                 break;
 
             case "Logout":
@@ -1301,7 +1461,9 @@ public class MainGUI_Desktop extends JFrame {
                 String depositAmount = JOptionPane.showInputDialog(this, "Enter amount to deposit:");
                 try {
                     customerDAO.Deposit(accountNo, Double.parseDouble(depositAmount));
-                    JOptionPane.showMessageDialog(this, "Deposit successful. New balance: " + customerDAO.viewBalance(accountNo));
+                    double newBalance = customerDAO.viewBalance(accountNo);
+                    accountantDAO.viewCustomer(String.valueOf(accountNo));
+                    JOptionPane.showMessageDialog(this, "Deposit successful. New balance: " + newBalance);
                 } catch (CustomerException e) {
                     JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -1311,11 +1473,15 @@ public class MainGUI_Desktop extends JFrame {
                 String withdrawAmount = JOptionPane.showInputDialog(this, "Enter amount to withdraw:");
                 try {
                     customerDAO.Withdraw(accountNo, Double.parseDouble(withdrawAmount));
-                    JOptionPane.showMessageDialog(this, "Withdrawal successful. New balance: " + customerDAO.viewBalance(accountNo));
+                    double newBalance = customerDAO.viewBalance(accountNo);
+                    // Force refresh of account data
+                    accountantDAO.viewCustomer(String.valueOf(accountNo));
+                    JOptionPane.showMessageDialog(this, "Withdrawal successful. New balance: " + newBalance);
                 } catch (CustomerException e) {
                     JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 break;
+            
 
             case "Transfer Money":
                 JPanel panel = new JPanel(new GridLayout(0, 2, 5, 5));
@@ -1335,7 +1501,10 @@ public class MainGUI_Desktop extends JFrame {
                     String targetAccount = targetAccountField.getText();
                     try {
                         customerDAO.Transfer(accountNo, Double.parseDouble(transferAmount), Integer.parseInt(targetAccount));
-                        JOptionPane.showMessageDialog(this, "Transfer successful. New balance: " + customerDAO.viewBalance(accountNo));
+                        double newBalance = customerDAO.viewBalance(accountNo);
+                        accountantDAO.viewCustomer(String.valueOf(accountNo));
+                        accountantDAO.viewCustomer(targetAccount);
+                        JOptionPane.showMessageDialog(this, "Transfer successful. New balance: " + newBalance);
                     } catch (CustomerException e) {
                         JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                     }
@@ -1345,27 +1514,22 @@ public class MainGUI_Desktop extends JFrame {
             case "View Transaction History":
                 try {
                     List<TransactionBean> transactions = customerDAO.viewTransaction(accountNo);
-                    String[] columnNames = {"Date and Time", "Amount", "Transaction Type"};
-                    Object[][] data = new Object[transactions.size()][3];
+                    String[] columnNames = {"Date and Time", "Credits", "Debits", "Transaction Type"};
+                    Object[][] data = new Object[transactions.size()][4];
                     
                     for (int i = 0; i < transactions.size(); i++) {
                         TransactionBean t = transactions.get(i);
-                        String amount = "";
-                        if (t.getDeposit() != 0) {
-                            amount = "+" + t.getDeposit();
-                        } else if (t.getWithdraw() != 0) {
-                            amount = "-" + t.getWithdraw();
-                        }
                         data[i] = new Object[]{
                             t.getTransaction_time(),
-                            amount,
+                            t.getDeposit() != 0 ? String.format("%.2f", t.getDeposit()) : "",
+                            t.getWithdraw() != 0 ? String.format("%.2f", t.getWithdraw()) : "",
                             t.getAccountType()
                         };
                     }
                     
                     JTable table = new JTable(data, columnNames);
                     JScrollPane scrollPane = new JScrollPane(table);
-                    scrollPane.setPreferredSize(new Dimension(600, 300));
+                    scrollPane.setPreferredSize(new Dimension(800, 300));
                     
                     JOptionPane.showMessageDialog(this, scrollPane, "Transaction History", JOptionPane.PLAIN_MESSAGE);
                 } catch (CustomerException e) {
@@ -1373,7 +1537,67 @@ public class MainGUI_Desktop extends JFrame {
                 }
                 break;
             
-
+            case "Create Fixed Deposit":
+                JPanel fdPanel = new JPanel(new GridLayout(0, 2, 5, 5));
+                JTextField amountField = new JTextField();
+                JTextField tenureField = new JTextField();
+            
+                fdPanel.add(new JLabel("Amount:"));
+                fdPanel.add(amountField);
+                fdPanel.add(new JLabel("Tenure (in months):"));
+                fdPanel.add(tenureField);
+            
+                int fdResult = JOptionPane.showConfirmDialog(null, fdPanel, "Create Fixed Deposit",
+                        JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            
+                if (fdResult == JOptionPane.OK_OPTION) {
+                    try {
+                        double amount = Double.parseDouble(amountField.getText());
+                        int tenureInMonths = Integer.parseInt(tenureField.getText());
+                        int fdAccountNo = accountantDAO.createFixedDepositAccount(accountNo, amount, tenureInMonths);
+                        accountantDAO.viewCustomer(String.valueOf(accountNo));
+                        JOptionPane.showMessageDialog(this, "Fixed Deposit created successfully! FD Account No: " + fdAccountNo);
+                    } catch (CustomerException e) {
+                        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+                    }
+                }
+                break;
+            
+            case "Pay Loan Installment":
+                try {
+                    List<LoanAccountBean> loans = customerDAO.viewLoanAccounts(accountNo);
+                    if (loans.isEmpty()) {
+                        JOptionPane.showMessageDialog(this, "No active loans found.");
+                        break;
+                    }
+            
+                    String[] loanIds = new String[loans.size()];
+                    for (int i = 0; i < loans.size(); i++) {
+                        LoanAccountBean loan = loans.get(i);
+                        loanIds[i] = String.valueOf(loan.getLoanAccountId());
+                    }
+            
+                    String selectedLoan = (String) JOptionPane.showInputDialog(
+                        this,
+                        "Select Loan ID to pay installment:",
+                        "Pay Loan Installment",
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        loanIds,
+                        loanIds[0]
+                    );
+            
+                    if (selectedLoan != null) {
+                        int loanId = Integer.parseInt(selectedLoan);
+                        accountantDAO.updateLoanAmount(loanId);
+                        accountantDAO.viewCustomer(String.valueOf(accountNo));
+                        JOptionPane.showMessageDialog(this, "Loan installment paid successfully!");
+                    }
+                } catch (CustomerException e) {
+                    JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+                }
+                break;
+            
             case "View Fixed Deposit Accounts":
                 viewCustomerFixedDepositAccounts(accountNo);
                 break;
