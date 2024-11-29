@@ -1,62 +1,103 @@
-# Online Banking System
+Online Banking System
+=====================
 
-The Online Banking System is a web-based application that simulates essential banking services, enabling users to securely manage their bank accounts, check balances, transfer funds, and perform other transactions. This project can be a great learning resource for understanding how to build and structure a banking application with a secure and user-friendly interface.
+Table of Contents
+-----------------
 
-## Table of Contents
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
+* [Features](#features)
+* [Technologies Used](#technologies-used)
+* [Installation](#installation)
+* [Usage](#usage)
+* [System Architecture](#system-architecture)
+* [Database Schema](#database-schema)
 
-## Features
+Features
+--------
 
 ### User Authentication
-- Register new users
-- Log in securely using user-set password
-- Reset password
-- Create new bank accounts for existing user
-- Edit existing accounts
-- Choose between savings and current account
-- Create accounts in multiple branches
-- Set overdraft limit and fee
+
+* Register new users
+* Log in securely using user-set password
+* Reset password using Security Question
+* Create new bank accounts for existing user
+* Edit existing accounts
+* Choose between savings and current account
+* Set overdraft limit and fee
 
 ### Account Management
-- Check account details
-- View balances
-- Transaction history with type of transaction
-- Manage loan and fixed deposit accounts
-- Close accounts
+
+* Check account details
+* View balances
+* Transaction history with type of transaction
+* Manage loan and fixed deposit accounts
+* Close accounts
 
 ### Fund Transfer
-- Transfer money between accounts
-- Withdraw money
-- Deposit money
-- Make loan payments
-- Withdraw from fixed deposit accounts
-- Withdraw money until overdraft limit
 
-### Admin Dashboard
-- Admin interface for managing user accounts
-- Monitor transactions
-- Check customer account status
-- Check customer transactions
-- Delete accounts
-- Creation of loan accounts
+* Transfer money between accounts
+* Withdraw money
+* Deposit money
+* Make loan payments
+* Withdraw from fixed deposit accounts
+* Withdraw money until overdraft limit (for current accounts)
 
-## Technologies Used
-- Frontend: Java Swing
-- Language: Java
-- Database: MySQL
-- Database Connection: JDBC
+Technologies Used
+-----------------
 
-## Installation
+* Frontend: Java Swing
+* Language: Java
+* Database: MySQL
+* Database Connection: JDBC
+
+Installation
+------------
 
 1. Clone the Repository
 ```bash
 git clone https://github.com/thirumuruganra/Online-banking-system.git
 ```
+2. Create the databases and the accountant's User ID and Password
+```bash
+cd Online-banking-system/src/com/obs/mainwork
+javac Create_DB.java
+java Create_DB
+```
 
-2. Run the Application
+```bash
+cd Online-banking-system/src/com/obs/mainwork
+javac Create_Accountants.java
+java Create_Accountants
+```
+
+3. Run the Application
 ```bash
 cd Online-banking-system
 java -jar BankingSystemProject.jar
 ```
+
+Usage
+-----
+
+1. Launch the application and log in as an accountant or customer.
+2. Perform various banking operations such as account management, fund transfer, and loan management.
+
+System Architecture
+-------------------
+
+The system consists of the following components:
+
+* Frontend: Java Swing-based GUI for user interaction
+* Backend: Java-based business logic for banking operations
+* Database: MySQL database for storing customer and account information
+
+Database Schema
+----------------
+
+The database schema consists of the following tables:
+
+* InfoAccountant
+* InfoCustomer
+* Account
+* Transaction
+* FixedDepositAccount
+* LoanAccount
