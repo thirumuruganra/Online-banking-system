@@ -45,6 +45,7 @@ Technologies Used
 -----------------
 
 * Frontend: Java Swing
+* Graphs and Charts: JFreeChart
 * Language: Java
 * Database: MySQL
 * Database Connection: JDBC
