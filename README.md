@@ -102,3 +102,9 @@ The database schema consists of the following tables:
 * Transaction
 * FixedDepositAccount
 * LoanAccount
+
+Contributors
+------------
+- **Thirumurugan RA** - [thirumuruganra](https://github.com/thirumuruganra/)
+- **Vishal Muralidharan** - [vishal-muralidharan](https://github.com/vishal-muralidharan)
+- **Varun Prakash** - [hauseboi](https://github.com/hauseboi)
